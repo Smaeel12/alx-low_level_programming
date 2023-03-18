@@ -20,18 +20,18 @@ int main(void)
 			{
 				for (Num4 = x ; Num4 <= 9 ; Num4++)
 				{
-				if (Num1 != Num2 != Num3 != Num4)
-				{	
+				if ((Num1 != Num2) != (Num3 != Num4))
+				{
 					putchar(Num1 + '0');
 					putchar(Num2 + '0');
 					putchar(' ');
 					putchar(Num3 + '0');
 					putchar(Num4 + '0');
-						if (Num1 != 9 || Num2 != 8 || Num3 != 9 || Num4 != 9)
-						{
-							putchar(',');
-							putchar(' ');
-						}
+					if (Num1 != 9 || Num2 != 8 || Num3 != 9 || Num4 != 9)
+					{
+					putchar(',');
+					putchar(' ');
+					}
 				}
 				}
 			}
