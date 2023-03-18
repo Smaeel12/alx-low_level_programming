@@ -10,7 +10,7 @@ int main(void)
 	int Num2;
 
 	do {
-		for (Num2 = 1 ; Num2 <= 9 ; Num2++)
+		for (Num2 = 0 ; Num2 <= 9 ; Num2++)
 		{
 			putchar(Num1 + '0');
 			putchar(Num2 + '0');
@@ -19,9 +19,8 @@ int main(void)
 			putchar(',');
 			putchar(' ');
 		}
-		Num2++;
 		}
-		Num1++;
+	Num1++;
 	} while (Num1 <= 8);
 	putchar('\n');
 	return (0);
