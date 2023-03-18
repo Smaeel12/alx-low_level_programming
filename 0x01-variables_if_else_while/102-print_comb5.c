@@ -10,6 +10,7 @@ int main(void)
 	int Num2;
 	int Num3;
 	int Num4;
+	int x = 1;
 
 	for (Num1 = 0 ; Num1 <= 9 ; Num1++)
 	{
@@ -17,13 +18,15 @@ int main(void)
 		{
 			for (Num3 = 0 ; Num3 <= 9 ; Num3++)
 			{
-				for (Num4 = 1 ; Num4 <= 9 ; Num4++)
+				for (Num4 = x ; Num4 <= 9 ; Num4++)
 				{
 				putchar(Num1 + '0');
 				putchar(Num2 + '0');
 				putchar(' ');
 				putchar(Num3 + '0');
 				putchar(Num4 + '0');
+
+
 				if (Num1 != 9 || Num2 != 8 || Num3 != 9 || Num4 != 9)
 				{
 				putchar(',');
@@ -31,6 +34,7 @@ int main(void)
 				}
 				}
 			}
+		x++;
 		}
 	}
 	putchar('\n');
