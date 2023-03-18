@@ -10,9 +10,7 @@ int main(void)
 	int Num2;
 
 	do {
-		for (Num2 = 0 ; Num2 <= 9 ; Num2++)
-		{
-		if (Num1 != Num2)
+		for (Num2 = Num1 + 1 ; Num2 <= 9 ; Num2++)
 		{
 			putchar(Num1 + '0');
 			putchar(Num2 + '0');
@@ -20,7 +18,6 @@ int main(void)
 		{
 			putchar(',');
 			putchar(' ');
-		}
 		}
 		}
 	Num1++;
