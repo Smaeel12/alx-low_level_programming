@@ -15,22 +15,22 @@ int main(void)
 	{
 		for (Num2 = 0 ; Num2 <= 8 ; Num2++)
 		{
-			for (Num3 = Num1 ; Num3 <= 9 ; Num3++)
+			for (Num3 = 0 ; Num3 <= 9 ; Num3++)
 			{
 				for (Num4 = 0 ; Num4 <= 9 ; Num4++)
 				{
-				if ((Num3+Num4 > Num1+Num2 && Num3 >= Num1) || Num1 < Num3)
-				{	
-					putchar(Num1 + '0');
-					putchar(Num2 + '0');
-					putchar(' ');
-					putchar(Num3 + '0');
-					putchar(Num4 + '0');
-						if (Num1 != 9 || Num2 != 8 || Num3 != 9 || Num4 != 9)
-						{
-							putchar(',');
-							putchar(' ');
-						}
+				if ((Num3 + Num4 > Num1 + Num2 && Num3 >= Num1) || Num1 < Num3)
+				{
+				putchar(Num1 + '0');
+				putchar(Num2 + '0');
+				putchar(' ');
+				putchar(Num3 + '0');
+				putchar(Num4 + '0');
+				if (Num1 != 9 || Num2 != 8 || Num3 != 9 || Num4 != 9)
+				{
+				putchar(',');
+				putchar(' ');
+				}
 				}
 				}
 			}
