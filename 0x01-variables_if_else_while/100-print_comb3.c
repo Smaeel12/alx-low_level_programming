@@ -12,12 +12,15 @@ int main(void)
 	do {
 		for (Num2 = 0 ; Num2 <= 9 ; Num2++)
 		{
+		if (Num1 != Num2)
+		{
 			putchar(Num1 + '0');
 			putchar(Num2 + '0');
 		if (Num1 != 8 ||  Num2 != 9)
 		{
 			putchar(',');
 			putchar(' ');
+		}
 		}
 		}
 	Num1++;
