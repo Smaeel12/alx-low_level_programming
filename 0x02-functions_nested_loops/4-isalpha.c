@@ -1,4 +1,3 @@
-#include <stdio.h>
 /**
  * _isalpha - entry point
  *@c: The character entred
