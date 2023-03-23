@@ -16,22 +16,21 @@ void times_table(void)
 			if (multi == 0 && j == 0)
 			{
 				_putchar ('0');
-				_putchar (',');
 			}
 			else if (multi <= 9)
 			{
 				_putchar (' ');
 				_putchar (' ');
 				_putchar (multi + '0');
-				_putchar (',');
 			}
-			else
+			else if (multi > 9)
 			{
 				_putchar (' ');
 				_putchar ((multi / 10) + '0');
 				_putchar ((multi % 10) + '0');
-				_putchar (',');
 			}
+			if ((multi == 0 && j == 0) || (multi <= 9 && j < 9) || (multi > 9 && j < 9))
+				_putchar (',');
 		}
 	_putchar('\n');
 	}
