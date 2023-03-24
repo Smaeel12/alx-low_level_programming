@@ -9,7 +9,7 @@
 int main(void)
 {
 	long num = 612852475143;
-	long div= 2;
+	long div = 2;
 	long prime;
 	long mod;
 
