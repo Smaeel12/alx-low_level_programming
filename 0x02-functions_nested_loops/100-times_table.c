@@ -10,6 +10,7 @@ void print_times_table(int n)
 	if (n < 15 && n >= 0)
 	{
 		int i, j, multi;
+
 		for (i = 0; i <= n; i++)
 		{
 			for (j = 0; j <= n; j++)
@@ -31,7 +32,7 @@ void print_times_table(int n)
 					_putchar(((multi / 10) % 10) + '0');
 					_putchar((multi % 10) + '0');
 				}
-				else 
+				else
 				{
 					if (j != 0)
 					{
