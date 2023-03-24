@@ -4,9 +4,9 @@
  *
  * Return: Always 0.
  */
-void main(void)
+int main(void)
 {
-	int i, c1, c2, c1r, c2r;
+	int i;
 
 	for (i = 1; i <= 100; i++)
 	{
@@ -21,4 +21,5 @@ void main(void)
 		printf(" ");
 	}
 	printf("\n");
+	return (0);
 }
