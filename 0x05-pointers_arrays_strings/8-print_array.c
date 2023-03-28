@@ -7,12 +7,14 @@
 void print_array(int *a, int n)
 {
 	int i = 0;
-
-	do {
-		printf("%d", *(a + i));
-		if (i < n - 1)
-			printf(", ");
-		i++;
-	} while (i < n);
+	if (n > 0)
+	{
+		do {
+			printf("%d", *(a + i));
+			if (i < n - 1)
+				printf(", ");
+			i++;
+		} while (i < n);
+	}
 	printf("\n");
 }
