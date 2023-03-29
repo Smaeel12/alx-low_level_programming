@@ -11,7 +11,7 @@ int main(void)
 {
 	int n;
 
-	n = _atoi("Hello ----- world\n");
+	n = _atoi("-2147483648");
 	printf("%d\n", n);
 	return (0);
 }
