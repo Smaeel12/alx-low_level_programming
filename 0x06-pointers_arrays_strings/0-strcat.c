@@ -7,7 +7,7 @@
  */
 char *_strcat(char *dest, char *src)
 {
-	char /*new[100],*/ i = 0/* j = 0, k = 0*/;
+	int i = 0;
 	int r = strlen(dest);
 
 	while (*(src + i) != '\0')
