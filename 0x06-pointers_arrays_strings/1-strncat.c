@@ -1,8 +1,10 @@
 #include <string.h>
 /**
- * main - check the code
- *
- * Return: Always 0.
+ * _strncat - function  copies  the  string pointed to by src
+ * @dest: first string
+ * @src: second string
+ * @n: n bytes of src are copied
+ * Return: a pointer to the resulting string dest
  */
 char *_strncat(char *dest, char *src, int n)
 {
