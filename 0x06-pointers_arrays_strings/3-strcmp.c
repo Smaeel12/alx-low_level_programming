@@ -1,4 +1,3 @@
-#include <string.h>
 /**
  * _strcmp - function that compares two strings.
  * @s1: first string
@@ -7,13 +6,16 @@
  */
 int _strcmp(char *s1, char *s2)
 {
-	int r1 = strlen(s1);
-	int r2 = strlen(s2);
-
-	if (r1 < r2)
-		return (-15);
-	else if (r1 > r2)
-		return (15);
-	else
-		return (0);
+	int i = 0;
+	while(s1[i] != '\0' || s2[i] != '\0')
+	{	
+		if (s1[i] != s2[i])
+		{
+			return (s1[i] - s2[i]);
+			break;
+		}
+		else
+			i++;
+	}
+	return (0);
 }
