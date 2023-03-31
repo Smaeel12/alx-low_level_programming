@@ -5,16 +5,16 @@
  */
 void reverse_array(int *a, int n)
 {
-	int i = 0, tmp[100];
+	int i = 0, j = n - 1, tmp[100];
 
-	while (i < (n - 1))
+	while (i < n)
 	{
-		*(tmp + i) = a[n - i - 1];
+		tmp [i] = a[(n - 1) - i];
 		i++;
 	}
-	while (i >= 0)
+	while (j >= 0)
 	{
-		a[i] = tmp[i];
-		i--;
+		a[j] = tmp[j];
+		j--;
 	}
 }
