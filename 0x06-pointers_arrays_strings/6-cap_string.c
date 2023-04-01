@@ -15,13 +15,7 @@ char *cap_string(char *s)
 		{
 			if (s[i + 1] >= 'a' && s[i + 1] <= 'z')
 			{
-				if (s[i] == '\t')
-				{
-					s[i] = ' ';
-					s[i + 1] -= 32;
-				}
-				else
-					s[i + 1] -= 32;
+				s[i + 1] -= 32;
 			}
 		}
 	}
