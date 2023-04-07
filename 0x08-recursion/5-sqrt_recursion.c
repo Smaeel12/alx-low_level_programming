@@ -1,39 +1,31 @@
-#include <unistd.h>
-#include <stdio.h>
-int _putchar(char c)
+/**
+ * manual_sqrt - calculate manualy the sqrt of a number.
+ * @n: natural number
+ * @count: counter or number to be multiplied.
+ * Return: sqrt 0 if sqrt is not natural.
+ */
+int manual_sqrt(int n, int count)
 {
-    return (write(1, &c, 1));
+	if ((count * count) == n)
+		return (count);
+	else if ((count * count) > n)
+		return (-1);
+	else
+		return (manual_sqrt(n, count + 1));
 }
-
+/**
+ * _sqrt_recursion - return the sqrt of a natural number.
+ * @n: natural number
+ * Return: sqrt 0 if sqrt is not natural.
+ */
 int _sqrt_recursion(int n)
 {
-  int result = 1;
-  if (n > 1)
-  {
-    result = _sqrt_recursion(n / 2);
-    if ((result * result) != n)
-      return (result);
-    else
-      result += 1;
-  }
-  return (1);
-}
+	if (n < 0)
+		return (-1);
 
-int main(void)
-{
-    int r;
+	else if (n == 0 || n == 1)
+		return (n);
 
-    r = _sqrt_recursion(1);
-    printf("%d\n", r);
-    r = _sqrt_recursion(1024);
-    printf("%d\n", r);
-    r = _sqrt_recursion(16);
-    printf("%d\n", r);
-    r = _sqrt_recursion(17);
-    printf("%d\n", r);
-    r = _sqrt_recursion(25);
-    printf("%d\n", r);
-    r = _sqrt_recursion(-1);
-    printf("%d\n", r);
-    return (0);
+	else
+		return (manual_sqrt(n, 1));
 }
