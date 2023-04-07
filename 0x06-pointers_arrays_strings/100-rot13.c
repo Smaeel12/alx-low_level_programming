@@ -6,22 +6,22 @@
 char *rot13(char *s)
 {
 	int i, j;
-	char LET[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	char let[] = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz";
-
 	for (i = 0; s[i] != '\0' && s[i] != '\n'; i++)
 	{
-		for (j = 0; j <= 25; j++)
+		for (j = 0;(s[j] <= 'Z' && s[j] >= 'A') && (s[j] <= 'Z' && s[j] >= 'A') ; j++)
+
 		{
-		if (s[i] == LET[j])
+		if (s[i] <= 'Z' && s[i] >= 'A')
 		{
-			s[i] = LET[j + 13];
-			break;
+			s[i] = (s[i] - 65) + 13;
+			if (s[i] > 26)
+				s[i] = (((s[i] - 65) + 13) % 26) + 65;
 		}
-		else if (s[i] == let[j])
+		else
 		{
-			s[i] = let[j + 13];
-			break;
+			s[i] = (s[i] - 97) + 13;
+			if (s[i] > 26)
+				s[i] = (((s[i] - 97) + 13) % 26) + 97;
 		}
 		}
 	}
