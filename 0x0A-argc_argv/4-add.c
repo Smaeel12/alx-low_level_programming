@@ -3,7 +3,10 @@
 #include <ctype.h>
 #include <string.h>
 /**
- * main - entry point
+ * main - entry point.
+ * @argc: argument count.
+ * @argv: argument vector.
+ * Return: 0.
  */
 int main(int argc, char *argv[])
 {
@@ -11,6 +14,7 @@ int main(int argc, char *argv[])
 
 	int i, j;
 	int sum = 0;
+
 	for (i = 1; i < argc; i++)
 	{
 		for (j = 0; j < (int)strlen(argv[i]); j++)
@@ -21,7 +25,7 @@ int main(int argc, char *argv[])
 				return (1);
 			}
 		}
-		sum += atoi(argv[i]); 
+		sum += atoi(argv[i]);
 	}
 	printf("%i\n", sum);
 	return (0);
