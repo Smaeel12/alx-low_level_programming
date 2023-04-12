@@ -4,7 +4,8 @@
  * and initializes it with a specific char.
  * @size: size of the array
  * @c: initializer
- * Return: NULL if size = 0 and a pointer to the array, or NULL if it fails
+ * Return: NULL if size = 0 and a pointer to the array on success,
+  * or NULL if it fails
  */
 char *create_array(unsigned int size, char c)
 {
@@ -15,16 +16,10 @@ char *create_array(unsigned int size, char c)
 	{
 		return (NULL);
 	}
-	else
-	{
-		arr = malloc(sizeof(char) * size + 1);
-		if (arr == NULL)
-			return (NULL);
-		for (i = 0; i < size; i++)
-			arr[i] = c;
-		arr[size] = '\0';
-		return (arr);
-	}
-
-
+	arr = malloc(sizeof(char) * size);
+	if (arr == NULL)
+		return (NULL);
+	for (i = 0; i < size; i++)
+		arr[i] = c;
+	return (arr);
 }
