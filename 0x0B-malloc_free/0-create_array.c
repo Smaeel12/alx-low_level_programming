@@ -1,6 +1,7 @@
 #include <stdlib.h>
 /**
- * create_array - function that creates an array of chars, and initializes it with a specific char.
+ * create_array - function that creates an array of chars,
+ * and initializes it with a specific char.
  * @size: size of the array
  * @c: initializer
  * Return: NULL if size = 0 and a pointer to the array, or NULL if it fails
@@ -16,6 +17,6 @@ char *create_array(unsigned int size, char c)
 	for (i = size; i >= 0; i--)
 		arr[i] = c;
 	return (arr);
-	if(arr == NULL)
+	if (arr == NULL)
 		return (NULL);
 }
