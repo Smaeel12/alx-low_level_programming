@@ -12,21 +12,39 @@ char *str_concat(char *s1, char *s2)
 {
 	char *concstr;
 	int i, j;
-	int len = strlen(s1) + strlen(s2);
+	int len;
 
+	/* calculating the lenght */
+	if (s1 == NULL)
+		len = strlen(s2);
+	else if (s2 == NULL)
+		len = strlen(s1);
+	else
+		len = strlen(s1) + strlen(s2);
+
+	/* allocating the memory */
 	concstr = malloc(sizeof(char) * len + 1);
 	if (concstr == NULL)
 	{
 		return (NULL);
 	}
-	for (i = 0; s1[i] != '\0'; i++)
+
+	/* concating the strings to the new pointer */
+	if (s1 != NULL)
 	{
-		concstr[i] = s1[i];
+		for (i = 0; s1[i] != '\0'; i++)
+		{
+			concstr[i] = s1[i];
+		}
 	}
-	for (j = 0; s2[j] != '\0'; j++)
+	if (s2 != NULL)
 	{
-		concstr[i + j] = s2[j];
+		for (j = 0; s2[j] != '\0'; j++)
+		{
+			concstr[i + j] = s2[j];
+		}
 	}
 	concstr[len] = '\0';
+
 	return (concstr);
 }
