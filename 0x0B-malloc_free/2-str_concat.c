@@ -16,7 +16,7 @@ char *str_concat(char *s1, char *s2)
 
 	/* calculating the lenght */
 	if (s1 == NULL && s2 == NULL)
-		return (NULL);
+		return ("");
 	else if (s1 == NULL)
 		len = strlen(s2);
 	else if (s2 == NULL)
