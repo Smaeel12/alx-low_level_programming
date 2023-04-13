@@ -15,14 +15,11 @@ char *str_concat(char *s1, char *s2)
 	int len;
 
 	/* calculating the lenght */
-	if (s1 == NULL && s2 == NULL)
-		return ("");
-	else if (s1 == NULL)
-		len = strlen(s2);
-	else if (s2 == NULL)
-		len = strlen(s1);
-	else
-		len = strlen(s1) + strlen(s2);
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
+	len = strlen(s1) + strlen(s2);
 
 	/* allocating the memory */
 	concstr = malloc(sizeof(char) * len + 1);
