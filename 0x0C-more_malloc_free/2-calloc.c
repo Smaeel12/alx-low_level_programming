@@ -16,7 +16,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	/* case size or nmemeb equal 0 */
 	if (nmemb == 0 || size == 0)
 	{
-		exit (0);
+		return (NULL);
 	}
 
 	/* allocate the memory */
