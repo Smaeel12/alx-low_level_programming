@@ -16,12 +16,13 @@ int *array_range(int min, int max)
 		return (NULL);
 
 	/* allocate the memory */
-	narr = malloc(sizeof(int) * (max - min) + 1);
+	narr = malloc(sizeof(int) * (max - min + 1));
 	if (narr == NULL)
 		return (NULL);
 
-	/* set memory to i */
-	for (i = min; i < max + 1; i++)
-		narr[i] = i;
+	/* set memory */
+	for (i = 0; i < max + 1 ; i++)
+		narr[i] = min++;
+
 	return (narr);
 }
