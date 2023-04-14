@@ -33,7 +33,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		n = lens2;
 
 	/* allocate memory to the new string */
-	concstr = malloc(sizeof(char) * (lens1 + n + 1) + 1);
+	concstr = malloc(sizeof(char) * (lens1 + n) + 1);
 	if (concstr == NULL)
 		return (NULL);
 
@@ -42,7 +42,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		concstr[i] = s1[i];
 	for (j = 0; j < n + 1; j++)
 		concstr[lens1 + j] = s2[j];
-	concstr[lens1 + n + 1] = '\0';
+	concstr[lens1 + n] = '\0';
 	/* return the new str */
 	return (concstr);
 }
