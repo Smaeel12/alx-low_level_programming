@@ -15,15 +15,17 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 
 	/* case size or nmemeb equal 0 */
 	if (nmemb == 0 || size == 0)
-		return (NULL);
+	{
+		exit (0);
+	}
 
 	/* allocate the memory */
-	arr = malloc(size * nmemb + 1);
+	arr = malloc(size * nmemb);
 	if (arr == NULL)
 		return (NULL);
 
 	/* set memory to zero */
-	memset(arr, 0, size * nmemb + 1);
+	memset(arr, 0, size * nmemb);
 
 	/* return a pointer */
 	return (arr);
