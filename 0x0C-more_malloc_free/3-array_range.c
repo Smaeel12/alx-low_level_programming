@@ -14,7 +14,9 @@ int *array_range(int min, int max)
 
 	/* condition */
 	if (min > max)
+	{
 		return (NULL);
+	}
 	else
 		size = max - min + 1;
 
