@@ -15,18 +15,16 @@ dog_t *new_dog(char *name, float age, char *owner)
 	/* allocating memory */
 	p = malloc(sizeof(struct dog));
 	if (p == NULL)
-		return(NULL);
-
-
+		return (NULL);
 
 	/* storing a copy of name and owner */
-	(*p).name = malloc(strlen(name));
+	(*p).name = malloc(strlen(name) + 1);
 	if ((*p).name == NULL)
 	{
 		free(p);
 		return (NULL);
 	}
-	(*p).owner = malloc(strlen(owner));
+	(*p).owner = malloc(strlen(owner) + 1);
 	if ((*p).owner == NULL)
 	{
 		free((*p).name);
@@ -35,7 +33,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	}
 	strcpy((*p).name, name);
 	strcpy((*p).owner, owner);
-	
+
 	/* accessing the elements */
 	(*p).name = (*p).name;
 	(*p).age = age;
