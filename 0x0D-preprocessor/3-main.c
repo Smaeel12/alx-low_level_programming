@@ -9,11 +9,7 @@
  */
 int main(void)
 {
-    int i;
-    int j;
 
-    i = ABS(-20000) * 10;
-    j = ABS(98) * 10;
-    printf("%d, %d\n", i, j);
+    printf("%d\n", ABS(1024 - 2048));
     return (0);
 }
