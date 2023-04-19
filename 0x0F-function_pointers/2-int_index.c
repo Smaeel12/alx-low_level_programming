@@ -15,22 +15,23 @@ int int_index(int *array, int size, int (*cmp)(int))
 
 	if (array != NULL && cmp != NULL)
 	{
-	if (size <= 0)
-	{
-		return (-1);
-	}
-	else
-	{
-		for (i = 0; i < size; i++)
+		if (size <= 0)
 		{
-			rtn = cmp(array[i]);
-			if (rtn == 1)
-			{
-				return (i);
-			}
+		return (-1);
 		}
-	return (-1);
+		else
+		{
+			for (i = 0; i < size; i++)
+			{
+				rtn = cmp(array[i]);
+				if (rtn == 1)
+				{
+					return (i);
+				}
+			}
+		return (-1);
+		}
 	}
-	}
+	return (0);
 }
 
