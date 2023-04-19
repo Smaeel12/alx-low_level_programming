@@ -46,7 +46,7 @@ int main(void)
     int array[] = {0};
     int index;
 
-    index = int_index(array, 0, is_98);
+    index = int_index(NULL, 0, NULL);
     printf("%d\n", index);
     index = int_index(array, 0, abs_is_98);
     printf("%d\n", index);
