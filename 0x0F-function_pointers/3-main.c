@@ -10,8 +10,8 @@
 int main(int argc, char *argv[])
 {
 	int num1 = 0, num2 = 0;
-	int (*op_func)(int, int);
-	int result;
+	int (*operator)(int, int);
+	int calc;
 
 
 
@@ -24,8 +24,8 @@ int main(int argc, char *argv[])
 	num2 = atoi(argv[3]);
 	num1 = atoi(argv[1]);
 
-	op_func = get_op_func(argv[2]);
-	if (op_func == NULL)
+	operator = get_op_func(argv[2]);
+	if (operator == NULL)
 	{
 		printf("Error\n");
 		exit(99);
@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(100);
 	}
-	result = op_func(num1, num2);
-	printf("%i\n", result);
+	calc = operator(num1, num2);
+	printf("%i\n", calc);
 	return (0);
 }
