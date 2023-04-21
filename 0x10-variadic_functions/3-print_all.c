@@ -2,13 +2,20 @@
 #include <stdio.h>
 #include <string.h>
 
+void print_char(va_list arg);
+void print_int(va_list arg);
+void print_float(va_list arg);
+void print_string(va_list arg);
+void print_all(const char * const format, ...);
 /**
  * print_char - print a character.
  * @args: the character.
  */
 void print_char(va_list args)
 {
-	printf("%c", va_arg(args, int));
+	char ch = va_arg(args, int);
+
+	printf("%c", ch);
 }
 
 /**
@@ -17,7 +24,9 @@ void print_char(va_list args)
  */
 void print_int(va_list args)
 {
-	printf("%i", va_arg(args, int));
+	int in = va_arg(args, int);
+
+	printf("%i", in);
 }
 
 /**
@@ -26,7 +35,9 @@ void print_int(va_list args)
  */
 void print_float(va_list args)
 {
-	printf("%f", va_arg(args, double));
+	float fl = va_arg(args, double);
+
+	printf("%f", fl);
 }
 
 /**
@@ -35,9 +46,8 @@ void print_float(va_list args)
  */
 void print_string(va_list args)
 {
-	char *string;
+	char *string = va_arg(args, char *);
 
-	string = va_arg(args, char *);
 	if (string == NULL)
 		printf("(nil)");
 	printf("%s", string);

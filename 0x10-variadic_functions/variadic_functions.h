@@ -17,10 +17,6 @@ typedef struct type
 	char format;
 	void (*func)(va_list args);
 } type_t;
-void print_char(va_list args);
-void print_int(va_list args);
-void print_float(va_list args);
-void print_string(va_list args);
 void print_all(const char * const format, ...);
 
 
