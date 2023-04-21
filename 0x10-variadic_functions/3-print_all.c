@@ -72,7 +72,7 @@ void print_all(const char * const format, ...)
 				{'s', print_string}
 				};
 	va_start(args, format);
-	while (i < len && format[i])
+	while (format && format[i])
 	{
 		j = 0;
 		while (j < 4 && format[i] != placeholder[j].format)
