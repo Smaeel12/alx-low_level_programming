@@ -62,7 +62,6 @@ void print_string(va_list args)
  */
 void print_all(const char * const format, ...)
 {
-	int len = strlen(format);
 	int i = 0, j = 0;
 	char *separator = "";
 	va_list args;
@@ -71,8 +70,9 @@ void print_all(const char * const format, ...)
 				{'f', print_float},
 				{'s', print_string}
 				};
+	
 	va_start(args, format);
-	while (i < len && format[i])
+	while (format && format[i])
 	{
 		j = 0;
 		while (j < 4 && format[i] != placeholder[j].format)
