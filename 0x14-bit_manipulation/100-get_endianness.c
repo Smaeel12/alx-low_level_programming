@@ -8,5 +8,5 @@ int get_endianness(void)
 	int num = 1;
 	char *byte_ptr = (char *)&num;
 
-	return (byte_ptr[0] == 1) ? 1 : 0;
+	return ((byte_ptr[0] == 1) ? 1 : 0);
 }
