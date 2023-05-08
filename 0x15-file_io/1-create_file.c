@@ -32,14 +32,17 @@ int create_file(const char *filename, char *text_content)
 {
 	int fp;
 	ssize_t wrl;
-	int len = _strlen(text_content);
+	int len = 0;
+
+	if (filename == NULL)
+		return (-1);
 
 	fp = open(filename, O_RDWR | O_CREAT | O_TRUNC, 0600);
 	if (fp == -1)
 		return (-1);
 	if (text_content != NULL)
 	{
-		len = strlen(text_content);
+		len = _strlen(text_content);
 		wrl = write(fp, text_content, len);
 		if (wrl == -1 || wrl != len)
 		{
