@@ -12,11 +12,24 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
+	if (filename != NULL)
+		return (0);
 	int fp = open(filename, O_RDONLY);
+	if (fp == -1)
+		return (0);
 	char buf[1024]; 
 	ssize_t n = read(fp, buf, letters);
+	if (n == -1)
+	{
+		close (fp);
+		return (0);
+	}
 	ssize_t wrl = write(STDOUT_FILENO, buf, n);
-
+	if (wrl < 1)
+	{
+		close (fp);
+		return (0);
+	}
 	close(fp);
 	return (wrl);
 }
