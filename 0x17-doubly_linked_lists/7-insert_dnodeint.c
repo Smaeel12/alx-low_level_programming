@@ -15,12 +15,17 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	dlistint_t *current, *prev_node, *new;
 	size_t num_element = 0;
 
+	if (idx == 0)
+		return (add_dnodeint(h, n));
+
 	current = *h;
-	while (num_element != idx)
+	while (current != NULL && num_element != idx)
 	{
 		current = current->next;
 		num_element++;
 	}
+	if (idx > num_element)
+		return (NULL);
 	prev_node = current->prev;
 	new = add_dnodeint(&current, n);
 	prev_node->next = new;
