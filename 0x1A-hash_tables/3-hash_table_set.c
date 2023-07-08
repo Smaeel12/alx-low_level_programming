@@ -21,8 +21,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (value_copy == NULL)
 		return (0);
 	key_copy = strdup(key);
+	if (value_copy == NULL)
+		return (0);
 
-	if (ht->array[key_idx] && strcmp(ht->array[key_idx]->key, key) != 0)
+	if (ht->array[key_idx] && !(strcmp(ht->array[key_idx]->key, key)))
 	{
 		free(ht->array[key_idx]->value);
 		ht->array[key_idx]->value = value_copy;
