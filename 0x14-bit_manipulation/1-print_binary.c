@@ -7,6 +7,7 @@
 void print_binary(unsigned long int n)
 {
 	unsigned long int bit = 1;
+	int e = 0, c_e = 0;
 
 	if (n == 0 || n == 1)
 		_putchar(n + '0');
@@ -14,9 +15,13 @@ void print_binary(unsigned long int n)
 	else
 	{
 		while (bit * 2 <= n)
-		bit *= 2;
-		while (bit != 0)
 		{
+			e++;
+			bit *= 2;
+		}
+		while (e >= 0)
+		{
+			e--;
 			if (n & bit)
 			{
 				_putchar('1');
@@ -24,7 +29,9 @@ void print_binary(unsigned long int n)
 			}
 			else
 				_putchar('0');
-			bit /= 2;
+			bit = 1;
+			for (c_e = 0; c_e < e; c_e++)
+				bit *= 2;
 		}
 	}
 }
