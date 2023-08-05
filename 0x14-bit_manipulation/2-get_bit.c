@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdbool.h>
+#include <stdio.h>
 
 /**
  * get_bit - Write a function that returns the value of a bit at a given index.
@@ -10,7 +11,7 @@
 
 int get_bit(unsigned long int n, unsigned int index)
 {
-	if ((unsigned long int) (1 << index) > n)
+	if (index > 32 || ((unsigned long int) (1 << index) > n))
 		return (-1);
 	if (n & (1 << index))
 		return (1);
