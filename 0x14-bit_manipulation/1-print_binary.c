@@ -1,37 +1,44 @@
 #include "main.h"
 #include <stdio.h>
 /**
- * print_binary - function that prints the binary representation of a number.
+ * powerof2 - function that calculate the power of 2
+	* using binary exponentiation
+ * @n: the number.
+ * Return: the result.
+ */
+unsigned long powerof2(int n)
+{
+	int result = 1;
+	int a = 2;
+
+	while (n > 0)
+	{
+		if (n & 1)
+		{
+			result *= a;
+		}
+		a = a * a;
+		n = n >> 1;
+	}
+	return (result);
+}
+/**
+ *  * print_binary - function that prints the binary
+	* representation of a number.
  * @n: the number
  */
 void print_binary(unsigned long int n)
 {
-	unsigned long int bit = 1;
-	int e = 0, c_e = 0;
+	int e = 16;
 
-	if (n == 0 || n == 1)
-		_putchar(n + '0');
-
-	else
+	while ((n & powerof2(e)) == 0 && e)
+		e--;
+	while (e >= 0)
 	{
-		while (bit * 2 <= n)
-		{
-			e++;
-			bit *= 2;
-		}
-		while (e >= 0)
-		{
-			e--;
-			if (n & bit)
-			{
-				_putchar('1');
-				n -= bit;
-			}
-			else
-				_putchar('0');
-			bit = 1;
-			for (c_e = 0; c_e < e; c_e++)
-				bit *= 2;
-		}
+		if (n & powerof2(e))
+			_putchar('1');
+		else
+			_putchar('0');
+		e--;
 	}
 }
