@@ -6,10 +6,10 @@
  * @n: the number.
  * Return: the result.
  */
-unsigned long powerof2(int n)
+unsigned long int powerof2(int n)
 {
-	int result = 1;
-	int a = 2;
+	unsigned long int result = 1;
+	unsigned long int a = 2;
 
 	while (n > 0)
 	{
@@ -29,10 +29,12 @@ unsigned long powerof2(int n)
  */
 void print_binary(unsigned long int n)
 {
-	int e = 16;
+	int e = 65;
 
 	while ((n & powerof2(e)) == 0 && e)
+	{
 		e--;
+	}
 	while (e >= 0)
 	{
 		if (n & powerof2(e))
