@@ -19,26 +19,17 @@ unsigned long int powerof2(int n)
 	}
 	return (result);
 }
-
 /**
- *  * print_binary - function that prints the binary
-	* representation of a number.
+ * get_bit - Write a function that returns the value of a bit at a given index.
  * @n: the number
+ * @index: is the index, starting from 0 of the bit you want to get
+ * Return: the value of the bit at index index or -1 if an error occured
  */
-void print_binary(unsigned long int n)
-{
-	int e = 65;
 
-	while ((n & powerof2(e)) == 0 && e)
-	{
-		e--;
-	}
-	while (e >= 0)
-	{
-		if (n & powerof2(e))
-			_putchar('1');
-		else
-			_putchar('0');
-		e--;
-	}
+int get_bit(unsigned long int n, unsigned int index)
+{
+	if (n & powerof2(index))
+		return (1);
+	else
+		return (0);
 }
