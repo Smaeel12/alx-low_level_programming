@@ -1,24 +1,6 @@
 #include "main.h"
-/**
- * powerof2 - function that calculate the power of 2
-	* using binary exponentiation
- * @n: the number.
- * Return: the result.
- */
-unsigned long int powerof2(int n)
-{
-	unsigned long int result = 1;
-	unsigned long int a = 2;
+#include <stdbool.h>
 
-	while (n > 0)
-	{
-		if (n & 1)
-			result *= a;
-		a = a * a;
-		n = n >> 1;
-	}
-	return (result);
-}
 /**
  * get_bit - Write a function that returns the value of a bit at a given index.
  * @n: the number
@@ -28,8 +10,7 @@ unsigned long int powerof2(int n)
 
 int get_bit(unsigned long int n, unsigned int index)
 {
-	if (n & powerof2(index))
-		return (1);
-	else
-		return (0);
+	if ((unsigned long int) (1 << index) > n)
+		return (-1);
+	return (!((bool) n & (1 << index)));
 }
