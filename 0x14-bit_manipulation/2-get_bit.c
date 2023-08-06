@@ -1,7 +1,3 @@
-#include "main.h"
-#include <stdbool.h>
-#include <stdio.h>
-
 /**
  * get_bit - Write a function that returns the value of a bit at a given index.
  * @n: the number
