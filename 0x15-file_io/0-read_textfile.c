@@ -19,7 +19,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	int number_of_bytes_written;
 	char *buffer;
 
-	if (!filename)
+	if (filename == NULL)
 		return (0);
 
 	file_descriptor = open(filename, O_RDONLY);
@@ -37,8 +37,10 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 
 	number_of_bytes_written = write(STDOUT_FILENO, buffer, number_of_bytes_read);
-	if (number_of_bytes_written == -1)
+	if (number_of_bytes_written == -1
+			|| number_of_bytes_written != number_of_bytes_read)
 		return (0);
 
+	close(file_descriptor);
 	return (number_of_bytes_read);
 }
