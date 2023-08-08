@@ -13,9 +13,9 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 	unsigned int index = 0;
 	unsigned int num_flips = 0;
 
-	while (checker <= xor_num && index < sizeof(unsigned long int) * 4)
+	while (checker <= xor_num && index < sizeof(unsigned long int) * 8)
 	{
-		checker = 1 << index;
+		checker = 1UL << index;
 		if (checker & xor_num)
 			num_flips++;
 		index++;
