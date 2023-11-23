@@ -1,3 +1,4 @@
+#include "main.h"
 /**
  * powerof2 - function that calculate the power of 2
 	* using binary exponentiation
