@@ -1,46 +1,44 @@
-#include "main.h"
 /**
- * main - a program that copies the content of a file to another file.
- * Return: always 0. 
- */
-char *read_from_a_file(int fd1)
+ * read_from_a_file - Reads data from a file descriptor and returns
+ * the read buffer.
+ * @fd: File descriptor of the file to read from.
+ * Return: a Pointer to the read buffer.
+*/
+char *read_from_a_file(int fd)
 {
-	int nbr1;
-	char *buffer;
+	static char buffer[MAX_BUFFER];
+	ssize_t nbr;
 
+	nbr = read(fd, buffer, MAX_BUFFER);
+	if (nbr < 0)
 	{
-	}
-	buffer = malloc(MAX_BUFFER);
-	if (buffer == NULL)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s", filename);
-		exit(98);
-	}
-	nbr1 = read(fd1, buffer, MAX_BUFFER);
-	if (nbr1 < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s", filename);
+		dprintf(STDERR_FILENO, "Error: Can't read from file descriptor %i", fd);
 		exit(98);
 	}
 	return (buffer);
 }
-void write_to_a_file(char *filename, char *buffer)
+/**
+ * write_to_a_file - Writes data from a buffer to a file descriptor.
+ * @fd: File descriptor of the file to write to.
+ * @buffer: Pointer to the buffer containing data to be written.
+*/
+void write_to_a_file(int fd, char *buffer)
 {
-	int fd2, nbw2;
+	ssize_t nbw;
 
-	fd2 = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 00664);
-	if (fd2 < 0)
+	nbw = write(fd, buffer, MAX_BUFFER);
+	if (nbw < 0)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write %s", filename);
-		exit(99);
-	}
-	nbw2 = write(fd2, buffer, MAX_BUFFER);
-	if (nbw2 < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write %s", filename);
+		dprintf(STDERR_FILENO, "Error: Can't write to file descriptor %i", fd);
 		exit(99);
 	}
 }
+/**
+ * main - entry point
+ * @ac: argument count
+ * @av: argument vector
+ * Return: Always 0.
+*/
 int main(int ac, char **av)
 {
 	int fd1, fd2, cs1, cs2;
@@ -51,14 +49,20 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	fd1 = open(filename, O_RDONLY);
+	fd1 = open(av[1], O_RDONLY);
 	if (fd1 < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s", av[1]);
 		exit(98);
 	}
 	buffer = read_from_a_file(fd1);
-	fd2 = write_to_a_file(av[2], buffer);
+	fd2 = open(av[2], O_CREAT | O_WRONLY | O_TRUNC, 00664);
+	if (fd2 < 0)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write %s", av[2]);
+		exit(99);
+	}
+	write_to_a_file(fd2, buffer);
 	cs1 = close(fd1);
 	if (cs1 < 0)
 	{
