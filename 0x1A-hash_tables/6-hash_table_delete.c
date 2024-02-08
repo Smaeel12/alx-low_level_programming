@@ -10,11 +10,11 @@ void free_list(hash_node_t *head)
 	while (head != NULL)
 	{
 		current = head->next;
+		free(head->key);
 		free(head->value);
 		free(head);
 		head = current;
 	}
-
 }
 /**
  * hash_table_delete - function that deletes a hash table.
