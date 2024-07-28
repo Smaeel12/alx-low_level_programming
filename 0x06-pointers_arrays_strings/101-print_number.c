@@ -4,7 +4,7 @@
  * recur_print_number - recursive function to print an integer
  * @n: integer
  */
-void recur_print_number(long int n)
+void recur_print_number(unsigned int n)
 {
 	char c;
 
