@@ -7,6 +7,7 @@
 void recur_print_number(long int n)
 {
 	char c;
+
 	if (n >= 10)
 		recur_print_number(n / 10);
 	c = n % 10 + '0';
